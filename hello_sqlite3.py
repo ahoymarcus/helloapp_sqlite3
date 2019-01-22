@@ -81,7 +81,7 @@ def user(name):
 	
 @app.route('/user/<int:id>')
 def another_user(id):
-	return '<h1>Hello associate number {}! Wellcome to our enterprise...</h1>'.format(id)
+	return '<h1>Hello associate number {}! Welcome to our enterprise...</h1>'.format(id)
 
 @app.errorhandler(404)
 def page_not_found(e):
