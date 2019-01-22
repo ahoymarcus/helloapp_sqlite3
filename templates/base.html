@@ -1,0 +1,25 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block head %}
+<!-- Atenção: o mét super() vai preservar os conteúdos dos templates bases, no caso "bootstrap/base.html" -->
+	{{ super() }}
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon" />
+	<link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon" />
+	{% block scripts %}
+		{{ super() }}
+		{{ moment.include_moment() }}
+		{{ moment.locale('es') }}
+	{% endblock %}
+{% endblock %}
+	
+{% block content %}
+<div class="container">
+	{% for message in get_flashed_messages() %}
+	<div class="alert alert-warning">
+		<button type="button" class="close" data-dismiss="alert">&times;</button>
+		{{ message }}
+	{% endfor %}
+	</div>
+	{% block page_content %}{% endblock %}
+</div>
+{% endblock %}

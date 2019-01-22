@@ -1,0 +1,47 @@
+<html>
+<head>
+	<title>Webserver {% block title%}{% endblock %}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" media="screen" href="static/bootstrap.min.css" />
+	<link rel="stylesheet" href="static/bootstrap-theme.min.css" />
+	
+	<style>
+		html { background-color: linen; }
+	</style>
+</head>
+{% block navbar %}
+<div class="navbar navbar-inverse" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/">Flasky</a>
+		</div>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="/">Home</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+{% endblock %}
+{% block content %}
+<div class="container">
+	<div class="page-header">
+		{% if name %}
+		<h1>Hello, and wellcome {{ name|capitalize }}</h1>
+		{% else %}
+		<h1>Hello, and wellcome friend</h1>
+		{% endif %}
+	</div>
+</div>
+{% endblock %}
+</html>
+
+
+
+

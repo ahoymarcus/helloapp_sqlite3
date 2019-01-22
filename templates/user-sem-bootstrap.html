@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+<html>
+<head>
+	{% block title%}
+	Users
+	{% endblock %}
+	<style>
+		html { background-color: linen; }
+	</style>
+</head>
+
+{% block body %}
+	{% if name %}
+	<h1>Hello, wellcome {{ name }}</h1>
+	<!-- usando filtros -->
+	<h2>Better, yet, wellcome {{ name|capitalize }}</h2>
+	{% else %}
+	<h1>Hello, stranger!</h1>
+	{% endif %}
+	<p>But we can always say:</p>
+	<ul>
+		<li>{{ name|safe }}</li>
+		<li>{{ name|lower }}</li>
+		<li>{{ name|upper }}</li>
+		<li>{{ name|title }}</li>
+		<li>{{ name|trim }}</li>
+		<li>{{ name|striptags }}</li>
+	</ul>
+	<p>O filtro safe do Jinja2 é dos mais interessantes, porque por default os inputs são escapados e renderizados como strings, mas para renderizar cód html, por ex, podemos aplicar o filtro em questão.</p>
+	<p>Note: contudo, nunca usar este filtro em valores não confiáveis, como texto enviado pelos users.</p>
+{% endblock %}
+</html>
