@@ -1,1 +1,1 @@
-web: gunicorn hello_sqlite3:app
+web: gunicorn helloapp:app
